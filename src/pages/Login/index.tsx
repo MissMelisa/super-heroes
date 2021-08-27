@@ -1,20 +1,17 @@
-import axios from "axios";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { Container, Button, Form, Image, Alert } from "react-bootstrap";
+import { useAuth } from "../../components/AuthContext";
 import TextField from "../../components/TextField";
+import { Credentials } from "../../types";
 import styles from "./styles.module.css";
-
-type Credential = {
-  email: string;
-  password: string;
-};
 
 function Login() {
   const [authError, setAuthError] = useState<string>("");
+  const { login } = useAuth();
 
-  const validate = (values: Credential) => {
-    const errors: Partial<Credential> = {};
+  const validate = (values: Credentials) => {
+    const errors: Partial<Credentials> = {};
 
     if (!values.email) {
       errors.email = "Email is required";
@@ -28,25 +25,17 @@ function Login() {
     }
     return errors;
   };
-  const formik = useFormik<Credential>({
+  const formik = useFormik<Credentials>({
     initialValues: {
       email: "",
       password: "",
     },
     validate,
     onSubmit: (values) => {
-      axios({
-        method: "post",
-        url: process.env.REACT_APP_AUTH_URL,
-        data: values,
-      })
-        .then(function (response) {
-          localStorage.setItem("token", response.data.token);
-        })
-        .catch(function (error) {
-          setAuthError(error.response.data.error);
-          console.log({ error });
-        });
+      login(values).catch(function (error) {
+        setAuthError(error.response.data.error);
+        console.log({ error });
+      });
     },
   });
 
