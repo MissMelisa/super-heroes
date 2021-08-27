@@ -1,5 +1,7 @@
 import { useFormik } from "formik";
-import { Container, Button, Form } from "react-bootstrap";
+import { Container, Button, Form, Image } from "react-bootstrap";
+import TextField from "../../components/TextField";
+import "./styles.css";
 
 function Login() {
   const formik = useFormik({
@@ -12,31 +14,34 @@ function Login() {
     },
   });
   return (
-    <Container>
-      <Form onSubmit={formik.handleSubmit}>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            onChange={formik.handleChange}
-            value={formik.values.email}
-          />
-          <Form.Text className="text-muted" />
-        </Form.Group>
+    <Container fluid="md">
+      <Image
+        alt="Alkemy"
+        fluid
+        className="imageLogin"
+        src="https://media-exp1.licdn.com/dms/image/C4E1BAQEDDjuh9HQchg/company-background_10000/0/1610631110628?e=2159024400&v=beta&t=00JMFny1Y6JiSd8rpPDIfJ_6vNH6NhtCK_yban1zy3c"
+      />
+      <h2 className="loginTitle">Login</h2>
+      <Form onSubmit={formik.handleSubmit} className="formContainer">
+        <TextField
+          onChange={formik.handleChange}
+          value={formik.values.email}
+          controlId="email"
+          type="email"
+          label="Email"
+          placeholder="email"
+        />
+        <TextField
+          type="password"
+          label="Password"
+          controlId="password"
+          placeholder="Password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+        />
 
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            onChange={formik.handleChange}
-            value={formik.values.password}
-          />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Submit
+        <Button type="submit" variant="info" className="buttonLogin">
+          Login
         </Button>
       </Form>
     </Container>
