@@ -44,8 +44,8 @@ function Login() {
           localStorage.setItem("token", response.data.token);
         })
         .catch(function (error) {
-          console.log(error);
-          setAuthError(error.message);
+          setAuthError(error.response.data.error);
+          console.log({ error });
         });
     },
   });
