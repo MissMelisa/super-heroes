@@ -18,7 +18,7 @@ export default function TextField({
   controlId,
 }: Props) {
   return (
-    <Form.Group className="textFieldContainer " controlId={controlId}>
+    <Form.Group className="textFieldContainer" controlId={controlId}>
       <Form.Label className="textFieldLabel">{label}</Form.Label>
       <Form.Control
         type={type}

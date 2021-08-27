@@ -1,18 +1,51 @@
+import axios from "axios";
 import { useFormik } from "formik";
 import { Container, Button, Form, Image } from "react-bootstrap";
 import TextField from "../../components/TextField";
 import "./styles.css";
 
+type Credential = {
+  email: string;
+  password: string;
+};
+
 function Login() {
-  const formik = useFormik({
+  const validate = (values: Credential) => {
+    const errors: Partial<Credential> = {};
+
+    if (!values.email) {
+      errors.email = "Required";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = "Invalid email address";
+    }
+    if (!values.password) {
+      errors.password = "Required";
+    }
+    return errors;
+  };
+  const formik = useFormik<Credential>({
     initialValues: {
       email: "",
       password: "",
     },
+    validate,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      axios({
+        method: "post",
+        url: process.env.REACT_APP_AUTH_URL,
+        data: values,
+      })
+        .then(function (response) {
+          localStorage.setItem("token", response.data.token);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     },
   });
+
   return (
     <Container fluid="md">
       <Image
@@ -41,7 +74,7 @@ function Login() {
         />
 
         <Button type="submit" variant="info" className="buttonLogin">
-          Login
+          Enviar
         </Button>
       </Form>
     </Container>
