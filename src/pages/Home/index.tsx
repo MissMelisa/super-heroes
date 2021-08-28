@@ -1,5 +1,7 @@
-import { Image } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import AddCard from "../../components/AddCard";
+import styles from "./styles.module.css";
 
 export default function Home() {
   const history = useHistory();
@@ -8,8 +10,9 @@ export default function Home() {
     history.push("/search-hero");
   }
   return (
-    <div>
-      <Image alt="Plus" fluid src="images/plus.svg" onClick={redirect} />
-    </div>
+    <Container className={styles.containerHome}>
+      <Card.Title>Tu equipo</Card.Title>
+      <AddCard onClick={redirect} />
+    </Container>
   );
 }

@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import { ItemImage, Powerstats } from "../../types";
+import { Powerstats } from "../../types";
 
 type SuperHeroProps = {
   name: string;

@@ -15,3 +15,16 @@
   justify-content: center;
   margin: 15px;
 }
+.add {
+  align-self: flex-end;
+  height: 100%;
+  width: 100%;
+  max-width: 30px;
+  max-height: 30px;
+  margin: 8px;
+}
+.nameSuperHero {
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 27px;
+}

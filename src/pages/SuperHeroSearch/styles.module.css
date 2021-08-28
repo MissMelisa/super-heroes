@@ -10,3 +10,7 @@
   align-items: center;
   justify-content: center;
 }
+.buttonSearch {
+  margin: 15px;
+  color: white;
+}

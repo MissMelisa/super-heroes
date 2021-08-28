@@ -45,8 +45,8 @@ export default function SuperHeroSearch() {
           type="text"
           value={formik.values.value}
         />
-        <Button type="submit" variant="info">
-          Enviar
+        <Button type="submit" variant="info" className={styles.buttonSearch}>
+          Buscar
         </Button>
       </Form>
 
