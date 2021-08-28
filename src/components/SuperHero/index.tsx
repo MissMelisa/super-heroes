@@ -1,11 +1,12 @@
 import { Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import { ItemImage, Powerstats } from "../../types";
 
 type SuperHeroProps = {
   name: string;
   image: string;
-  powerstats: string;
-  onClick: () => void;
+  powerstats: Powerstats;
+  onClick?: () => void;
 };
 
 export default function SuperHero({
@@ -19,7 +20,12 @@ export default function SuperHero({
       <Card.Img src={image} alt={name} />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
-        <Card.Text>{powerstats}</Card.Text>
+        <Card.Text>Intelligencia:{powerstats.intelligence}</Card.Text>
+        <Card.Text>Combate:{powerstats.combat}</Card.Text>
+        <Card.Text>Duracion:{powerstats.durability}</Card.Text>
+        <Card.Text>Poder:{powerstats.power}</Card.Text>
+        <Card.Text>Velocidad:{powerstats.speed}</Card.Text>
+        <Card.Text>Fuerza:{powerstats.strength}</Card.Text>
         <Button onClick={onClick}>See more...</Button>
       </Card.Body>
     </Card>

@@ -1,0 +1,12 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.containerSearchHeroPage {
+  padding: 15px;
+}
+.rowSuperHeroes {
+  align-items: center;
+  justify-content: center;
+}

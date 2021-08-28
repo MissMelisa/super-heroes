@@ -1,0 +1,17 @@
+.imageSuperHero {
+  height: 100%;
+  width: 100%;
+  max-width: 200px;
+  max-height: 170px;
+  margin: 15px;
+}
+.containerSuperHero {
+  height: 100%;
+  width: 100%;
+  max-width: 350px;
+  max-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
