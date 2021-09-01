@@ -16,6 +16,7 @@ const initialContext: AuthContextType = {
 export const AuthContext = React.createContext(initialContext);
 
 const accessTokenKey = "access_token";
+
 export default function AuthProvider({
   children,
 }: {

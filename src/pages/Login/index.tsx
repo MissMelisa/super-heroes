@@ -34,7 +34,6 @@ function Login() {
     onSubmit: (values) => {
       login(values).catch(function (error) {
         setAuthError(error.response.data.error);
-        console.log({ error });
       });
     },
   });

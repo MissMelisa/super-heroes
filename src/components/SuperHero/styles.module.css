@@ -1,0 +1,36 @@
+.imageSuperHero {
+  height: 100%;
+  width: 100%;
+  max-width: 200px;
+  max-height: 170px;
+  margin: 15px;
+}
+.cardContainer {
+  height: 100%;
+  width: 100%;
+  max-width: 350px;
+  max-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+.buttonSeeMore {
+  align-self: center;
+}
+.nameSuperHero {
+  font-family: fantasy;
+  font-weight: bolder;
+  font-size: 25px;
+  align-self: center;
+}
+.cardBody {
+  height: 100%;
+  width: 100%;
+  max-width: 450px;
+  max-height: 500px;
+  font-size: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}

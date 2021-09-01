@@ -6,8 +6,14 @@ type Props = { onClick: () => void };
 export default function AddCard({ onClick }: Props) {
   return (
     <Card className={styles.containerAdd}>
-      <Card.Body>
-        <Image alt="Plus" fluid src="images/plus.svg" onClick={onClick} />
+      <Card.Body className={styles.cardBody}>
+        <Image
+          className={styles.imageAdd}
+          alt="Plus"
+          fluid
+          src="images/plus.svg"
+          onClick={onClick}
+        />
       </Card.Body>
     </Card>
   );

@@ -1,11 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useContext } from "react";
+
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import AuthProvider, { AuthContext } from "./components/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
+import SuperHeroProvider from "./components/SuperHeroContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SuperHeroSearch from "./pages/SuperHeroSearch";
@@ -23,12 +24,14 @@ function App() {
                 <Route path="/login" exact>
                   <Login />
                 </Route>
-                <PrivateRoute path="/" exact>
-                  <Home />
-                </PrivateRoute>
-                <PrivateRoute path="/search-hero" exact>
-                  <SuperHeroSearch />
-                </PrivateRoute>
+                <SuperHeroProvider>
+                  <PrivateRoute path="/" exact>
+                    <Home />
+                  </PrivateRoute>
+                  <PrivateRoute path="/search-hero" exact>
+                    <SuperHeroSearch />
+                  </PrivateRoute>
+                </SuperHeroProvider>
               </Switch>
             </AuthProvider>
           </Router>
