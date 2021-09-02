@@ -20,7 +20,6 @@ export type TeamSummary = {
   strength: number;
   weight: number;
   height: number;
-  signOut?: () => void;
 };
 
 export type SuperHero = {

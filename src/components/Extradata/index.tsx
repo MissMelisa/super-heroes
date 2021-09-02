@@ -44,10 +44,10 @@ export default function ExtraData({
           Hair's color:<p className={styles.subTitle}>{hairColor}</p>
         </p>
         <p className={styles.subTitleModal}>
-          Weight:<p className={styles.subTitle}>{weight}</p>
+          Weight:<p className={styles.subTitle}>{weight}kg</p>
         </p>
         <p className={styles.subTitleModal}>
-          Height:<p className={styles.subTitle}>{height}</p>
+          Height:<p className={styles.subTitle}>{height}cm</p>
         </p>
         <p className={styles.subTitleModal}>
           Job:<p className={styles.subTitle}>{work}</p>

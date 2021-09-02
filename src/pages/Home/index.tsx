@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card, Container, Image, Row } from "react-bootstrap";
+import { Card, Container, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import AddCard from "../../components/AddCard";
 import { useAuth } from "../../components/AuthContext";
@@ -54,9 +54,9 @@ export default function Home() {
         strength={total.strength}
         durability={total.durability}
         speed={total.speed}
-        height={total.height}
+        height={total.height ? total.height / myTeam.length : 0}
         signOut={signOut}
-        weight={total.weight}
+        weight={total.weight ? total.weight / myTeam.length : 0}
       />
       <Card.Title className={styles.titleHome}>Your team</Card.Title>
       <Row className={styles.rowSuperHeroes}>

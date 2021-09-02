@@ -2,6 +2,10 @@ import { Container, Image, Nav, Navbar } from "react-bootstrap";
 import { TeamSummary } from "../../types";
 import styles from "./styles.module.css";
 
+type Props = {
+  signOut: () => void;
+} & TeamSummary;
+
 export default function NavBar({
   combat,
   intelligence,
@@ -12,7 +16,7 @@ export default function NavBar({
   height,
   weight,
   signOut,
-}: TeamSummary) {
+}: Props) {
   return (
     <Navbar bg="light" variant="light" expand="lg" collapseOnSelect={true}>
       <Container className={styles.navContainer}>

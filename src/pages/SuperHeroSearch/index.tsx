@@ -32,11 +32,12 @@ export default function SuperHeroSearch() {
     error,
     data = [],
   } = useQuery<SuperHero[], Error>(["repoHeroes", valueSearched], () => {
-    return searchSuperHeroes(valueSearched);
+    if (valueSearched.length >= 1) {
+      return searchSuperHeroes(valueSearched);
+    } else {
+      return [];
+    }
   });
-  if (isLoading) return <Spinner animation="border" />;
-
-  if (error) return <span>An error has occurred: {error}</span>;
 
   function handleOnAddHeroClick(item: SuperHero) {
     const teamHero = myTeam.find((i) => item.id === i.id);
@@ -84,10 +85,23 @@ export default function SuperHeroSearch() {
           Search
         </Button>
       </Form>
+      {isLoading && <Spinner animation="border" />}
+      {error && (
+        <Alert
+          variant="danger"
+          onClose={() => setErrorInYourTeam("")}
+          dismissible
+          className={styles.alertContainer}
+        >
+          <Alert.Heading>Oh! You got an error</Alert.Heading>
+          <p className={styles.alertStory}>{errorInYourTeam}</p>
+        </Alert>
+      )}
 
       <Row className={styles.rowSuperHeroes}>
         {data.map((item) => (
           <SuperHeroSearched
+            key={item.id}
             id={item.id}
             image={item.image}
             name={item.name}

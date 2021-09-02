@@ -7,17 +7,16 @@ export function searchSuperHeroes(value: string): Promise<SuperHero[]> {
     method: "get",
     url: `${URL}/search/${value}`,
   }).then((response) => {
-    if (response.data.error) return [];
-
     const superHeroes = response.data.results.map((item: any) => ({
+      key: item.id,
       image: item.image.url,
       name: item.name,
       powerstats: item.powerstats,
       id: item.id,
       aliases: item.biography.aliases,
       fullName: item.biography["full-name"],
-      height: item.appearance.height,
-      weight: item.appearance.weight,
+      height: item.appearance.height[1].replace("cm", ""),
+      weight: item.appearance.weight[1].replace("kg", ""),
       alignment: item.biography.alignment,
       work: item.work.base,
       eyeColor: item.appearance["eye-color"],
