@@ -6,10 +6,12 @@ import { Credentials } from "../../types";
 type AuthContextType = {
   token: string;
   login: (values: Credentials) => Promise<void>;
+  signOut: () => void;
 };
 
 const initialContext: AuthContextType = {
   token: "",
+  signOut: async () => {},
   login: async (values: Credentials) => {},
 };
 
@@ -35,9 +37,14 @@ export default function AuthProvider({
       history.push("/");
     });
   }
+  function signOut() {
+    localStorage.removeItem("access_token");
+    history.push("/");
+    setToken("");
+  }
 
   return (
-    <AuthContext.Provider value={{ token, login }}>
+    <AuthContext.Provider value={{ token, login, signOut }}>
       {children}
     </AuthContext.Provider>
   );

@@ -4,12 +4,23 @@ export type Credentials = {
 };
 
 export type Powerstats = {
-  combat: string;
-  durability: string;
-  intelligence: string;
-  power: string;
-  speed: string;
-  strength: string;
+  combat: number;
+  durability: number;
+  intelligence: number;
+  power: number;
+  speed: number;
+  strength: number;
+};
+export type TeamSummary = {
+  combat: number;
+  durability: number;
+  intelligence: number;
+  power: number;
+  speed: number;
+  strength: number;
+  weight: number;
+  height: number;
+  signOut?: () => void;
 };
 
 export type SuperHero = {

@@ -28,12 +28,13 @@ export default function SuperHero({
       <Card.Img src={image} alt={name} className={styles.imageSuperHero} />
       <Card.Body className={styles.cardBody}>
         <Card.Title className={styles.nameSuperHero}>{name}</Card.Title>
-        <Card.Text>Intelligencia:{powerstats.intelligence}</Card.Text>
-        <Card.Text>Combate:{powerstats.combat}</Card.Text>
-        <Card.Text>Duracion:{powerstats.durability}</Card.Text>
-        <Card.Text>Poder:{powerstats.power}</Card.Text>
-        <Card.Text>Velocidad:{powerstats.speed}</Card.Text>
-        <Card.Text>Fuerza:{powerstats.strength}</Card.Text>
+        <Card.Text>Intelligence:{powerstats.intelligence}</Card.Text>
+        <Card.Text>Combat:{powerstats.combat}</Card.Text>
+        <Card.Text>Durability:{powerstats.durability}</Card.Text>
+        <Card.Text>Power:{powerstats.power}</Card.Text>
+        <Card.Text>Speed:{powerstats.speed}</Card.Text>
+        <Card.Text>Strength:{powerstats.strength}</Card.Text>
+
         <Button
           onClick={onClick}
           type="submit"

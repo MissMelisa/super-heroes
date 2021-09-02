@@ -1,0 +1,29 @@
+.titleNav {
+  padding: 10px;
+}
+.navContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signOut {
+  color: black;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+.imageSignOut {
+  width: 30px;
+  height: 30px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .navContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+} ;

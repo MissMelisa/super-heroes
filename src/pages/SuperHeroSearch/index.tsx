@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import { Alert, Button, Container, Form } from "react-bootstrap";
+import { Alert, Button, Container, Form, Spinner } from "react-bootstrap";
 import { useQuery } from "react-query";
 import { searchSuperHeroes } from "../../api/superHeroes";
 import SuperHeroSearched from "../../components/SuperHeroSearched";
@@ -34,7 +34,7 @@ export default function SuperHeroSearch() {
   } = useQuery<SuperHero[], Error>(["repoHeroes", valueSearched], () => {
     return searchSuperHeroes(valueSearched);
   });
-  if (isLoading) return <span>"Loading..."</span>;
+  if (isLoading) return <Spinner animation="border" />;
 
   if (error) return <span>An error has occurred: {error}</span>;
 
