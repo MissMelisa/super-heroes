@@ -8,7 +8,7 @@ import { useSuperHero } from "../../components/SuperHeroContext";
 import styles from "./styles.module.css";
 
 export default function Home() {
-  const { myTeam } = useSuperHero();
+  const { myTeam, deleteHero } = useSuperHero();
   const history = useHistory();
 
   const [modalShow, setModalShow] = useState<boolean>(false);
@@ -23,6 +23,7 @@ export default function Home() {
         <AddCard onClick={redirect} />
         {myTeam.map((item) => (
           <SuperHero
+            onDelete={() => deleteHero(item.id)}
             onClick={() => setModalShow(true)}
             image={item.image}
             name={item.name}

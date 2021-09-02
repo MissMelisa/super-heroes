@@ -14,6 +14,7 @@ export default function AddCard({ onClick }: Props) {
           src="images/plus.svg"
           onClick={onClick}
         />
+        <Card.Text className={styles.addText}>Add a superhero</Card.Text>
       </Card.Body>
     </Card>
   );

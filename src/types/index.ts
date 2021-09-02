@@ -12,25 +12,7 @@ export type Powerstats = {
   strength: string;
 };
 
-export type Biography = {
-  fullName: string;
-  alterEgos: string;
-  aliases: string[];
-  placeOfBirth: string;
-  firstAppearance: string;
-  publisher: string;
-  alignment: string;
-};
-export type Appearance = {
-  gender: string;
-  race: string;
-  height: string[];
-  weight: string[];
-  eyeColor: string;
-  hairColor: string;
-};
-
-export type MyTeam = {
+export type SuperHero = {
   fullName: string;
   id: string;
   weight: string;
@@ -41,5 +23,6 @@ export type MyTeam = {
   aliases: string[];
   hairColor: string;
   image: string;
+  alignment: "good" | "bad";
   powerstats: Powerstats;
 };

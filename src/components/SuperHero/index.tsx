@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Image } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Powerstats } from "../../types";
 import styles from "./styles.module.css";
@@ -8,6 +8,7 @@ type SuperHeroProps = {
   image: string;
   powerstats: Powerstats;
   onClick: () => void;
+  onDelete: () => void;
 };
 
 export default function SuperHero({
@@ -15,9 +16,15 @@ export default function SuperHero({
   image,
   powerstats,
   onClick,
+  onDelete,
 }: SuperHeroProps) {
   return (
     <Card className={styles.cardContainer}>
+      <Image
+        src="images/delete.svg"
+        onClick={onDelete}
+        className={styles.delete}
+      />
       <Card.Img src={image} alt={name} className={styles.imageSuperHero} />
       <Card.Body className={styles.cardBody}>
         <Card.Title className={styles.nameSuperHero}>{name}</Card.Title>

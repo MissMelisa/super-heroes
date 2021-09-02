@@ -1,16 +1,34 @@
 .formContainer {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 .containerSearchHeroPage {
   padding: 15px;
+  position: relative;
 }
 .rowSuperHeroes {
   align-items: center;
   justify-content: center;
 }
 .buttonSearch {
-  margin: 15px;
+  align-self: flex-end;
   color: white;
+}
+.alertContainer {
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  max-height: 150px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  right: 20px;
+  top: 30px;
+}
+.alertStory {
+  font-size: 20px;
 }

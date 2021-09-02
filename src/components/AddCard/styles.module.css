@@ -18,9 +18,13 @@
 .cardBody {
   height: 100%;
   width: 100%;
-  min-width: 450px;
   min-height: 500px;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
+}
+.addText {
+  font-family: fantasy;
+  font-size: 20px;
 }

@@ -5,7 +5,7 @@ type Props = {
   onChange: (e: React.ChangeEvent<any>) => void;
   value: string;
   type: string;
-  label: string;
+  label?: string;
   placeholder: string;
   controlId: string;
   error?: string;
@@ -28,7 +28,7 @@ export default function TextField({
         placeholder={placeholder}
         onChange={onChange}
         value={value}
-        className="textField"
+        className={styles.textField}
       />
 
       <Form.Control.Feedback type="invalid" className={styles.errorMessage}>

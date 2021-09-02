@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-import AuthProvider, { AuthContext } from "./components/AuthContext";
+import AuthProvider from "./components/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
 import SuperHeroProvider from "./components/SuperHeroContext";
 import Home from "./pages/Home";

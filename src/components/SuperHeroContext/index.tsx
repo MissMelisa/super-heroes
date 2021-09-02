@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { MyTeam } from "../../types";
+import { SuperHero } from "../../types";
 
 type SuperHeroContextType = {
-  myTeam: MyTeam[];
+  myTeam: SuperHero[];
   deleteHero: (id: string) => void;
-  addNewHero: (hero: MyTeam) => void;
+  addNewHero: (hero: SuperHero) => void;
 };
 
 const initialContext: SuperHeroContextType = {
@@ -20,9 +20,9 @@ export default function SuperHeroProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [myTeam, setMyTeam] = useState<MyTeam[]>([]);
+  const [myTeam, setMyTeam] = useState<SuperHero[]>([]);
 
-  function addNewHero(hero: MyTeam) {
+  function addNewHero(hero: SuperHero) {
     setMyTeam((prevState) => {
       return [...prevState, hero];
     });

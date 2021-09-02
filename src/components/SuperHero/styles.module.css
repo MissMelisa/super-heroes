@@ -15,6 +15,10 @@
   justify-content: center;
   margin: 15px;
 }
+.delete {
+  align-self: flex-end;
+  padding: 5px;
+}
 .buttonSeeMore {
   align-self: center;
 }
