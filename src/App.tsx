@@ -17,10 +17,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="upgrade-insecure-requests"
-        />
         <QueryClientProvider client={queryClient}>
           <Router>
             <AuthProvider>
