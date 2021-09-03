@@ -32,25 +32,13 @@ export default function ExtraData({
       </Modal.Header>
       <Modal.Body>
         <ul className={styles.titleModal}>
-          Nombre completo:<li className={styles.subTitle}>{fullName}</li>
-        </ul>
-        <ul className={styles.titleModal}>
-          Alias:<li className={styles.subTitle}>{aliases}</li>
-        </ul>
-        <ul className={styles.titleModal}>
-          Eye's color:<li className={styles.subTitle}>{eyeColor}</li>
-        </ul>
-        <ul className={styles.titleModal}>
-          Hair's color:<li className={styles.subTitle}>{hairColor}</li>
-        </ul>
-        <ul className={styles.titleModal}>
-          Weight:<li className={styles.subTitle}>{weight}kg</li>
-        </ul>
-        <ul className={styles.titleModal}>
-          Height:<li className={styles.subTitle}>{height}cm</li>
-        </ul>
-        <ul className={styles.titleModal}>
-          Job:<li className={styles.subTitle}>{work}</li>
+          <li className={styles.subTitle}> Nombre completo:{fullName}</li>
+          <li className={styles.subTitle}>Alias:{aliases}</li>
+          <li className={styles.subTitle}> Eye's color:{eyeColor}</li>
+          <li className={styles.subTitle}>Hair's color:{hairColor}</li>
+          <li className={styles.subTitle}> Weight:{weight}kg</li>
+          <li className={styles.subTitle}> Height:{height}cm</li>
+          <li className={styles.subTitle}> Job:{work}</li>{" "}
         </ul>
       </Modal.Body>
     </Modal>

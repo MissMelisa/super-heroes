@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import { Alert, Button, Container, Form, Spinner } from "react-bootstrap";
+import { Button, Container, Form, Spinner } from "react-bootstrap";
 import { useQuery } from "react-query";
 import { searchSuperHeroes } from "../../api/superHeroes";
 import SuperHeroSearched from "../../components/SuperHeroSearched";
@@ -10,6 +10,7 @@ import Row from "react-bootstrap/Row";
 import { useHistory } from "react-router-dom";
 import styles from "./styles.module.css";
 import { useSuperHero } from "../../components/SuperHeroContext";
+import ErrorMessage from "../../components/ErrorMessage";
 
 export default function SuperHeroSearch() {
   const [valueSearched, setValueSearched] = useState<string>("");
@@ -87,15 +88,10 @@ export default function SuperHeroSearch() {
       </Form>
       {isLoading && <Spinner animation="border" />}
       {error && (
-        <Alert
-          variant="danger"
+        <ErrorMessage
           onClose={() => setErrorInYourTeam("")}
-          dismissible
-          className={styles.alertContainer}
-        >
-          <Alert.Heading>Oh! You got an error</Alert.Heading>
-          <p className={styles.alertStory}>{errorInYourTeam}</p>
-        </Alert>
+          errorMessage={error.message}
+        />
       )}
 
       <Row className={styles.rowSuperHeroes}>
@@ -110,15 +106,10 @@ export default function SuperHeroSearch() {
         ))}
       </Row>
       {errorInYourTeam && (
-        <Alert
-          variant="danger"
+        <ErrorMessage
           onClose={() => setErrorInYourTeam("")}
-          dismissible
-          className={styles.alertContainer}
-        >
-          <Alert.Heading>Oh! You got an error</Alert.Heading>
-          <p className={styles.alertStory}>{errorInYourTeam}</p>
-        </Alert>
+          errorMessage={errorInYourTeam}
+        />
       )}
     </Container>
   );

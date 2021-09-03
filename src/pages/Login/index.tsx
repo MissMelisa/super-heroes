@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { Container, Button, Form, Image, Alert } from "react-bootstrap";
 import { useAuth } from "../../components/AuthContext";
+import ErrorMessage from "../../components/ErrorMessage";
 import TextField from "../../components/TextField";
 import { Credentials } from "../../types";
 import styles from "./styles.module.css";
@@ -85,15 +86,10 @@ function Login() {
         </Button>
       </Form>
       {authError && (
-        <Alert
-          className={styles.alertContainer}
-          variant="danger"
+        <ErrorMessage
           onClose={() => setAuthError("")}
-          dismissible
-        >
-          <Alert.Heading>Oh! You got an error!</Alert.Heading>
-          <p className={styles.alertStory}>{authError}</p>
-        </Alert>
+          errorMessage={authError}
+        />
       )}
     </Container>
   );
