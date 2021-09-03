@@ -21,7 +21,6 @@ function App() {
           http-equiv="Content-Security-Policy"
           content="upgrade-insecure-requests"
         />
-
         <QueryClientProvider client={queryClient}>
           <Router>
             <AuthProvider>
