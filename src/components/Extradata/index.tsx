@@ -26,32 +26,32 @@ export default function ExtraData({
   onHide,
 }: ExtraDataProps) {
   return (
-    <Modal show={show} onHide={onHide}>
+    <Modal show={show} onHide={onHide} bg="light">
       <Modal.Header closeButton>
-        <Modal.Title className={styles.titleModal}>{name}</Modal.Title>
+        <Modal.Title className={styles.nameHero}>{name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p className={styles.subTitleModal}>
-          Nombre completo:<p className={styles.subTitle}>{fullName}</p>
-        </p>
-        <p className={styles.subTitleModal}>
-          Alias:<p className={styles.subTitle}>{aliases}</p>
-        </p>
-        <p className={styles.subTitleModal}>
-          Eye's color:<p className={styles.subTitle}>{eyeColor}</p>
-        </p>
-        <p className={styles.subTitleModal}>
-          Hair's color:<p className={styles.subTitle}>{hairColor}</p>
-        </p>
-        <p className={styles.subTitleModal}>
-          Weight:<p className={styles.subTitle}>{weight}kg</p>
-        </p>
-        <p className={styles.subTitleModal}>
-          Height:<p className={styles.subTitle}>{height}cm</p>
-        </p>
-        <p className={styles.subTitleModal}>
-          Job:<p className={styles.subTitle}>{work}</p>
-        </p>
+        <ul className={styles.titleModal}>
+          Nombre completo:<li className={styles.subTitle}>{fullName}</li>
+        </ul>
+        <ul className={styles.titleModal}>
+          Alias:<li className={styles.subTitle}>{aliases}</li>
+        </ul>
+        <ul className={styles.titleModal}>
+          Eye's color:<li className={styles.subTitle}>{eyeColor}</li>
+        </ul>
+        <ul className={styles.titleModal}>
+          Hair's color:<li className={styles.subTitle}>{hairColor}</li>
+        </ul>
+        <ul className={styles.titleModal}>
+          Weight:<li className={styles.subTitle}>{weight}kg</li>
+        </ul>
+        <ul className={styles.titleModal}>
+          Height:<li className={styles.subTitle}>{height}cm</li>
+        </ul>
+        <ul className={styles.titleModal}>
+          Job:<li className={styles.subTitle}>{work}</li>
+        </ul>
       </Modal.Body>
     </Modal>
   );

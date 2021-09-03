@@ -12,7 +12,6 @@ type SuperHeroProps = {
 export default function SuperHeroSearched({
   name,
   image,
-  id,
   onClick,
 }: SuperHeroProps) {
   return (

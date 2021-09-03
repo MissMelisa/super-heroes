@@ -3,7 +3,7 @@
   width: 100%;
   flex-direction: column;
   height: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 .rowSuperHeroes {
@@ -18,3 +18,23 @@
   font-weight: bolder;
   padding: 10px;
 }
+.alert {
+  margin: 15px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 900px;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+  }
+} ;

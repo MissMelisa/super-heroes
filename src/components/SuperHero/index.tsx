@@ -19,7 +19,7 @@ export default function SuperHero({
   onDelete,
 }: SuperHeroProps) {
   return (
-    <Card className={styles.cardContainer}>
+    <Card className={styles.cardContainer} bg="light">
       <Image
         src="images/delete.svg"
         onClick={onDelete}

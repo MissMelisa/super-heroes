@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Card, Container, Row } from "react-bootstrap";
+import { Alert, Card, Container, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import AddCard from "../../components/AddCard";
 import { useAuth } from "../../components/AuthContext";
 import ExtraData from "../../components/Extradata";
 import NavBar from "../../components/NavBar";
+import SummaryTeam from "../../components/SummaryTeam";
 import SuperHero from "../../components/SuperHero";
 import { useSuperHero } from "../../components/SuperHeroContext";
 import { TeamSummary } from "../../types";
@@ -20,48 +21,66 @@ export default function Home() {
     history.push("/search-hero");
   }
 
-  const total = myTeam.reduce(
+  const teamSummary = myTeam.reduce(
     (total, item) => {
-      total.intelligence += parseInt(item.powerstats.intelligence as any);
-      total.combat += parseInt(item.powerstats.combat as any);
-      total.speed += parseInt(item.powerstats.speed as any);
-      total.power += parseInt(item.powerstats.power as any);
-      total.strength += parseInt(item.powerstats.strength as any);
-      total.durability += parseInt(item.powerstats.durability as any);
+      total.powerstats.intelligence += parseInt(
+        item.powerstats.intelligence as any
+      );
+      total.powerstats.combat += parseInt(item.powerstats.combat as any);
+      total.powerstats.speed += parseInt(item.powerstats.speed as any);
+      total.powerstats.power += parseInt(item.powerstats.power as any);
+      total.powerstats.strength += parseInt(item.powerstats.strength as any);
+      total.powerstats.durability += parseInt(
+        item.powerstats.durability as any
+      );
       total.weight += parseInt(item.weight as any);
       total.height += parseInt(item.height as any);
 
       return total;
     },
     {
-      intelligence: 0,
-      combat: 0,
-      durability: 0,
-      power: 0,
-      speed: 0,
-      strength: 0,
+      powerstats: {
+        intelligence: 0,
+        combat: 0,
+        durability: 0,
+        power: 0,
+        speed: 0,
+        strength: 0,
+      },
       weight: 0,
       height: 0,
     } as TeamSummary
   );
 
+  const entries = Object.entries(teamSummary.powerstats);
+  const maximumStat = entries.reduce((maxStat, attribute) => {
+    if (attribute[1] > maxStat[1]) {
+      return attribute;
+    } else {
+      return maxStat;
+    }
+  }, entries[0]);
+
   return (
     <Container className={styles.containerHome}>
-      <NavBar
-        intelligence={total.intelligence}
-        combat={total.combat}
-        power={total.power}
-        strength={total.strength}
-        durability={total.durability}
-        speed={total.speed}
-        height={total.height ? total.height / myTeam.length : 0}
-        signOut={signOut}
-        weight={total.weight ? total.weight / myTeam.length : 0}
-      />
+      <NavBar signOut={signOut} />
+      {maximumStat[1] > 2 && (
+        <Alert className={styles.alert} variant="info">
+          Team's type: {maximumStat[0]} ({maximumStat[1]})
+        </Alert>
+      )}
+      <Container className={styles.header}>
+        <SummaryTeam
+          powerstats={teamSummary.powerstats}
+          height={teamSummary.height ? teamSummary.height / myTeam.length : 0}
+          weight={teamSummary.weight ? teamSummary.weight / myTeam.length : 0}
+        />
+
+        <AddCard onClick={redirect} />
+      </Container>
+
       <Card.Title className={styles.titleHome}>Your team</Card.Title>
       <Row className={styles.rowSuperHeroes}>
-        <AddCard onClick={redirect} />
-
         {myTeam.map((item) => (
           <SuperHero
             key={item.id}

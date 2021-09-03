@@ -12,14 +12,9 @@ export type Powerstats = {
   strength: number;
 };
 export type TeamSummary = {
-  combat: number;
-  durability: number;
-  intelligence: number;
-  power: number;
-  speed: number;
-  strength: number;
   weight: number;
   height: number;
+  powerstats: Powerstats;
 };
 
 export type SuperHero = {

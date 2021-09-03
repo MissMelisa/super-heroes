@@ -1,15 +1,17 @@
-.subTitleModal {
+.titleModal {
   font-family: fantasy;
   font-weight: bold;
+  font-size: 17px;
 }
 .subTitle {
   font-size: 20px;
   font-weight: bolder;
-  margin-left: 10px;
+  margin-left: 20px;
 }
-.titleModal {
+.nameHero {
+  font-size: 22px;
   font-family: fantasy;
-  font-weight: bold;
-
-  font-size: 25px;
+  font-weight: bolder;
+  margin-left: 20px;
+  align-items: center;
 }

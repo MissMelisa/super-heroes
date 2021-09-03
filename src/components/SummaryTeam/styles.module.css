@@ -1,0 +1,33 @@
+.titleCard {
+  padding: 10px;
+  font-size: 17px;
+}
+.cardContainer {
+  width: 100%;
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px;
+}
+.cardBody {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+.titleTotal {
+  font-weight: bolder;
+  width: 100%;
+  max-width: 200px;
+  align-self: center;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .cardContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    align-items: center;
+    justify-content: center;
+  }
+} ;

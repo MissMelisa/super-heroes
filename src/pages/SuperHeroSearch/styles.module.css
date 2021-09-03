@@ -14,6 +14,7 @@
 .buttonSearch {
   align-self: flex-end;
   color: white;
+  margin-left: 5px;
 }
 
 .alertContainer {
