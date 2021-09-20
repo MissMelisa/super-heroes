@@ -20,7 +20,11 @@ export default function TextField({
   error,
 }: Props) {
   return (
-    <Form.Group className={styles.textFieldContainer} controlId={controlId}>
+    <Form.Group
+      className={styles.textFieldContainer}
+      controlId={controlId}
+      role="form"
+    >
       <Form.Label className={styles.textFieldLabel}>{label}</Form.Label>
       <Form.Control
         isInvalid={!!error}

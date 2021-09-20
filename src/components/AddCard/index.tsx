@@ -13,6 +13,7 @@ export default function AddCard({ onClick }: Props) {
           fluid
           src="images/plus.svg"
           onClick={onClick}
+          role="button"
         />
         <Card.Text className={styles.addText}>Add a superhero</Card.Text>
       </Card.Body>

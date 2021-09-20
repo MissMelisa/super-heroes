@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import { Container, Button, Form, Image, Alert } from "react-bootstrap";
+import { Container, Button, Form, Image } from "react-bootstrap";
 import { useAuth } from "../../components/AuthContext";
 import ErrorMessage from "../../components/ErrorMessage";
 import TextField from "../../components/TextField";
