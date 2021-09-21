@@ -15,7 +15,7 @@ export default function SuperHeroSearched({
   onClick,
 }: SuperHeroProps) {
   return (
-    <Card className={styles.containerSuperHero} role="combobox">
+    <Card className={styles.containerSuperHero} role="listitem">
       <Card.Img src={image} alt={name} className={styles.imageSuperHero} />
       <Card.Body>
         <Card.Title className={styles.nameSuperHero}> {name}</Card.Title>

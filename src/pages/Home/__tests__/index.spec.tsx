@@ -1,8 +1,8 @@
 import { screen } from "@testing-library/react";
 import Home from "../../Home";
-import { renderWithProviders } from "../../../utils/tests";
 import userEvent from "@testing-library/user-event";
 import { SuperHero } from "../../../types";
+import { render } from "../../../utils/tests";
 
 const myTeam: SuperHero[] = [
   {
@@ -35,13 +35,8 @@ const myTeam: SuperHero[] = [
   },
 ];
 
-jest.mock("../../../components/SuperHeroContext", () => ({
-  useSuperHero: () => {
-    return { myTeam };
-  },
-}));
 test("team detail list", async () => {
-  renderWithProviders(<Home />);
+  render(<Home />, { preloadedState: { superHeroes: { myTeam } } });
 
   const summaryTeamList = screen.getAllByRole("listitem");
   expect(summaryTeamList).toHaveLength(12);
@@ -55,11 +50,12 @@ test("team detail list", async () => {
   const buttonSeeMore = screen.getByRole("button", {
     name: /plus/i,
   });
+
   userEvent.click(buttonSeeMore);
 });
 
 test("add a superHero", async () => {
-  renderWithProviders(<Home />);
+  render(<Home />);
 
   const buttonAdd = screen.getByRole("button", {
     name: /plus/i,

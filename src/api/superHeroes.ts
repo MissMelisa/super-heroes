@@ -22,6 +22,7 @@ export function searchSuperHeroes(value: string): Promise<SuperHero[]> {
       eyeColor: item.appearance["eye-color"],
       hairColor: item.appearance["hair-color"],
     }));
+
     return superHeroes;
   });
 }

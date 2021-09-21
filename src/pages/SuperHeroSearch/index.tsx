@@ -12,13 +12,15 @@ import styles from "./styles.module.css";
 import ErrorMessage from "../../components/ErrorMessage";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { addNewHero } from "../../redux/slices/superHeroesSlice";
+import NavBar from "../../components/NavBar";
+import { useAuth } from "../../components/AuthContext";
 
 export default function SuperHeroSearch() {
   const [valueSearched, setValueSearched] = useState<string>("");
   const [errorInYourTeam, setErrorInYourTeam] = useState<string>("");
   const myTeam = useAppSelector((state) => state.superHeroes.myTeam);
   const dispatch = useAppDispatch();
-
+  const { signOut } = useAuth();
   const history = useHistory();
 
   const formik = useFormik({
@@ -74,14 +76,16 @@ export default function SuperHeroSearch() {
   }
   return (
     <Container className={styles.containerSearchHeroPage}>
+      <NavBar signOut={signOut} />
       <h1>Super Heroes</h1>
 
       <Form onSubmit={formik.handleSubmit} className={styles.formContainer}>
         <TextField
           controlId="value"
           onChange={formik.handleChange}
-          placeholder="Heroe..."
+          placeholder="Hero..."
           type="text"
+          label="Hero"
           value={formik.values.value}
         />
         <Button type="submit" variant="info" className={styles.buttonSearch}>

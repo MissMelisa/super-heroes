@@ -5,7 +5,7 @@ type Props = {
   onChange: (e: React.ChangeEvent<any>) => void;
   value: string;
   type: string;
-  label?: string;
+  label: string;
   placeholder: string;
   controlId: string;
   error?: string;
@@ -20,13 +20,10 @@ export default function TextField({
   error,
 }: Props) {
   return (
-    <Form.Group
-      className={styles.textFieldContainer}
-      controlId={controlId}
-      role="form"
-    >
+    <Form.Group className={styles.textFieldContainer} controlId={controlId}>
       <Form.Label className={styles.textFieldLabel}>{label}</Form.Label>
       <Form.Control
+        aria-label={label}
         isInvalid={!!error}
         type={type}
         placeholder={placeholder}
