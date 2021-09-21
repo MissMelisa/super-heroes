@@ -9,13 +9,15 @@ import { SuperHero } from "../../types";
 import Row from "react-bootstrap/Row";
 import { useHistory } from "react-router-dom";
 import styles from "./styles.module.css";
-import { useSuperHero } from "../../components/SuperHeroContext";
 import ErrorMessage from "../../components/ErrorMessage";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
+import { addNewHero } from "../../redux/slices/superHeroesSlice";
 
 export default function SuperHeroSearch() {
   const [valueSearched, setValueSearched] = useState<string>("");
   const [errorInYourTeam, setErrorInYourTeam] = useState<string>("");
-  const { addNewHero, myTeam } = useSuperHero();
+  const myTeam = useAppSelector((state) => state.superHeroes.myTeam);
+  const dispatch = useAppDispatch();
 
   const history = useHistory();
 
@@ -63,7 +65,7 @@ export default function SuperHeroSearch() {
     if (item.alignment === "bad" && badHeroes === 3) {
       return setErrorInYourTeam("You have 3 bad heroes");
     }
-    addNewHero(item);
+    dispatch(addNewHero(item));
     redirect();
   }
 

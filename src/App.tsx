@@ -6,7 +6,6 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./components/AuthContext";
 import PrivateRoute from "./components/PrivateRoute";
-import SuperHeroProvider from "./components/SuperHeroContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SuperHeroSearch from "./pages/SuperHeroSearch";
@@ -24,14 +23,12 @@ function App() {
                 <Route path="/login" exact>
                   <Login />
                 </Route>
-                <SuperHeroProvider>
-                  <PrivateRoute path="/" exact>
-                    <Home />
-                  </PrivateRoute>
-                  <PrivateRoute path="/search-hero" exact>
-                    <SuperHeroSearch />
-                  </PrivateRoute>
-                </SuperHeroProvider>
+                <PrivateRoute path="/" exact>
+                  <Home />
+                </PrivateRoute>
+                <PrivateRoute path="/search-hero" exact>
+                  <SuperHeroSearch />
+                </PrivateRoute>
               </Switch>
             </AuthProvider>
           </Router>

@@ -7,12 +7,14 @@ import ExtraData from "../../components/Extradata";
 import NavBar from "../../components/NavBar";
 import SummaryTeam from "../../components/SummaryTeam";
 import SuperHero from "../../components/SuperHero";
-import { useSuperHero } from "../../components/SuperHeroContext";
+import { deleteHero } from "../../redux/slices/superHeroesSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { TeamSummary } from "../../types";
 import styles from "./styles.module.css";
 
 export default function Home() {
-  const { myTeam, deleteHero } = useSuperHero();
+  const myTeam = useAppSelector((state) => state.superHeroes.myTeam);
+  const dispatch = useAppDispatch();
   const { signOut } = useAuth();
   const history = useHistory();
 
@@ -84,7 +86,7 @@ export default function Home() {
         {myTeam.map((item) => (
           <SuperHero
             key={item.id}
-            onDelete={() => deleteHero(item.id)}
+            onDelete={() => dispatch(deleteHero(item.id))}
             onClick={() => setModalShow(true)}
             image={item.image}
             name={item.name}
