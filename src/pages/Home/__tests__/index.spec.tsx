@@ -55,10 +55,11 @@ test("team detail list", async () => {
 });
 
 test("add a superHero", async () => {
-  render(<Home />);
+  const { history } = render(<Home />);
 
   const buttonAdd = screen.getByRole("button", {
     name: /plus/i,
   });
   userEvent.click(buttonAdd);
+  expect(history.location.pathname).toEqual("/search-hero");
 });

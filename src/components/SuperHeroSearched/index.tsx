@@ -26,6 +26,7 @@ export default function SuperHeroSearched({
         src="images/plus.svg"
         className={styles.add}
         onClick={onClick}
+        role="button"
       />
     </Card>
   );

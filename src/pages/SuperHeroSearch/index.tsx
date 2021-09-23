@@ -36,13 +36,16 @@ export default function SuperHeroSearch() {
     isLoading,
     error,
     data = [],
-  } = useQuery<SuperHero[], Error>(["repoHeroes", valueSearched], () => {
-    if (valueSearched.length >= 1) {
+  } = useQuery<SuperHero[], Error>(
+    ["repoHeroes", valueSearched],
+    () => {
       return searchSuperHeroes(valueSearched);
-    } else {
-      return [];
+    },
+    {
+      enabled: valueSearched.length >= 1,
+      retry: process.env.NODE_ENV === "production",
     }
-  });
+  );
 
   function handleOnAddHeroClick(item: SuperHero) {
     const teamHero = myTeam.find((i) => item.id === i.id);

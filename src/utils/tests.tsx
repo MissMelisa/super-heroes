@@ -1,17 +1,23 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { MemoryRouter as Router } from "react-router-dom";
+import { Router } from "react-router-dom";
 // test-utils.jsx
 
 import { render as rtlRender } from "@testing-library/react";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { superHeroesReducer } from "../redux/slices/superHeroesSlice";
+import { createMemoryHistory } from "history";
 
 const queryClient = new QueryClient();
 
+type WrapperProps = {
+  children: React.ReactNode;
+};
+
 function render(
   ui: JSX.Element,
+
   {
     preloadedState,
     store = configureStore({
@@ -19,18 +25,25 @@ function render(
       preloadedState,
     }),
     ...renderOptions
-  } = {} as any
+  } = {} as any,
+  pushString = "/"
 ) {
-  function Wrapper({ children }: { children: React.ReactNode }) {
+  const history = createMemoryHistory();
+
+  history.push(pushString);
+  function Wrapper({ children }: WrapperProps) {
     return (
       <Provider store={store}>
         <QueryClientProvider client={queryClient}>
-          <Router>{children}</Router>
+          <Router history={history}>{children}</Router>
         </QueryClientProvider>
       </Provider>
     );
   }
-  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
+  return {
+    ...rtlRender(ui, { wrapper: Wrapper, ...renderOptions }),
+    history,
+  };
 }
 
 // re-export everything
